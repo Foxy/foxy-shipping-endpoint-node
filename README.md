@@ -8,7 +8,7 @@ FoxyCart POSTs to your endpoint script a JSON payload containing information abo
 
 ```js
 var express = require('express');
-var ShippingResponse = require('foxy-shipping-response');
+var ShippingResponse = require('foxy-shipping-endpoint');
 var app = express();
 
 var bodyParser = require('body-parser');
@@ -36,7 +36,7 @@ For an example of the payload that is sent to your endpoint, please refer to the
 ## Installation
 
 ```
-$ npm install foxy-shipping-response
+$ npm install foxy-shipping-endpoint
 ```
 
 ## Requirements
@@ -46,17 +46,17 @@ $ npm install foxy-shipping-response
 
 ## Getting Started
 
-To start creating your custom rates, you first need to create the Shipping Response object. The requires that you've included the `foxy-shipping-response` module in your script, and you pass the JSON object of the cart data payload your endpoint received when creating the object:
+To start creating your custom rates, you first need to create the Shipping Response object. The requires that you've included the `foxy-shipping-endpoint` module in your script, and you pass the JSON object of the cart data payload your endpoint received when creating the object:
 
 ```js
-var ShippingResponse = require('foxy-shipping-response');
+var ShippingResponse = require('foxy-shipping-endpoint');
 // capture request body into variable named cart_details
 rates = new ShippingResponse(cart_details);
 ```
 
 ### Helper Functions
 
-The `foxy-shipping-response` module adds a number of functions you can utilise to execute your custom shipping logic:
+The `foxy-shipping-endpoint` module adds a number of functions you can utilise to execute your custom shipping logic:
 
 #### `add()`
 
@@ -188,11 +188,11 @@ response.send(rates.output());
 
 ## Code Examples
 
-The following are examples of the custom logic for common shipping requirements. They all assume a basic endpoint with the following code, including the `foxy-shipping-response`, `express` and `body-parser` modules:
+The following are examples of the custom logic for common shipping requirements. They all assume a basic endpoint with the following code, including the `foxy-shipping-endpoint`, `express` and `body-parser` modules:
 
 ```js
 var express = require('express');
-var ShippingResponse = require('foxy-shipping-response');
+var ShippingResponse = require('foxy-shipping-endpoint');
 var app = express();
 
 var bodyParser = require('body-parser');
