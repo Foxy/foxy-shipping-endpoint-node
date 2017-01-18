@@ -241,7 +241,7 @@ if (cart_details['_embedded']['fx:shipment']['total_weight'] > 10) {
   rates.update(10003, 11.99);
 }
  
-if (cart_details['_embedded']['fx:items'].length > 5) {
+if (cart_details['_embedded']['fx:shipment']['item_count'] > 5) {
   rates.remove(10003);
 }
 ```
@@ -252,7 +252,7 @@ if (cart_details['_embedded']['fx:items'].length > 5) {
 * Two different groups of shipping options are presented, one for local delivery within the US, and one for international addresses based off of the shipping country.
 
 ```js
-var item_count = cart_details['_embedded']['fx:items'].length;
+var item_count = cart_details['_embedded']['fx:shipment']['item_count'];
 if (cart_details['_embedded']['fx:shipment']['country'] == "US") {
   var postage = 10 + (($item_count - 1) * 0.50);
   rates.add(10001, postage, 'FoxyPost', 'Standard');
