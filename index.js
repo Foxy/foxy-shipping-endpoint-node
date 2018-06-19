@@ -3,7 +3,7 @@
  *
  * @author foxy.io
  * @copyright foxy.io LLC
- * @version 1.0.0
+ * @version 1.1.0
  * @license MIT http://opensource.org/licenses/MIT
  */
 
@@ -13,7 +13,7 @@ function ShippingResponse(cart_details) {
         return false;
     }
 
-    this.rates = [];
+    this.rates = (cart_details["_embedded"].hasOwnProperty("fx:shipping_results")) ? cart_details["_embedded"]["fx:shipping_results"] : [];
     this.error_message = false;
     this.cart_details = cart_details;
 }
