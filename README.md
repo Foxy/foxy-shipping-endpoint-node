@@ -12,8 +12,8 @@ var ShippingResponse = require('foxy-shipping-endpoint');
 var app = express();
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '1mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }));
 
 app.post('/', function(request, response) {
   var cart_details = request.body;
